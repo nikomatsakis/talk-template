@@ -1,2 +1,3 @@
-# talk-template
-A template for talks I give
+# Talk template
+
+Clone this repo for new talks

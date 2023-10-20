@@ -504,7 +504,7 @@ blockquote {
   border-left: 10px solid #ccc;
   margin: 1.5em 10px;
   padding: 0.5em 10px;
-  quotes: "\201C""\201D""\2018""\2019";
+  quotes: "\201C" "\201D" "\2018" "\2019";
 }
 
 blockquote:before {
@@ -553,4 +553,138 @@ blockquote p {
   content: "";
   display: table;
   clear: both;
+}
+
+.rotSE img {
+  transform: rotate(45deg);
+}
+
+.rotS img {
+  transform: rotate(90deg);
+}
+
+.rotSW img {
+  transform: rotate(135deg);
+}
+
+.rotW img {
+  transform: rotate(180deg);
+}
+
+.rotNW img {
+  transform: rotate(225deg);
+}
+
+.rotN img {
+  transform: rotate(270deg);
+}
+
+.rotNE img {
+  transform: rotate(315deg);
+}
+
+.arrow img {
+  width: 50px;
+}
+
+.speech-bubble {
+  position: relative;
+  border-radius: .4em;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: white;
+}
+
+
+.speech-bubble.left:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 32px solid transparent;
+  border-left: 0;
+  border-top: 0;
+  margin-top: -16px;
+  margin-left: -32px;
+}
+
+
+.speech-bubble.right:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 20px solid transparent;
+  border-right: 0;
+  border-top: 0;
+  margin-top: -10px;
+  margin-right: -20px;
+}
+
+.speech-bubble.topright:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 75%;
+  width: 0;
+  height: 0;
+  border: 20px solid transparent;
+  border-top: 0;
+  margin-left: -20px;
+  margin-top: -20px;
+}
+
+.fliplr img {
+  transform: scale(-1, 1);
+}
+
+
+.speech-bubble.barbara {
+  background: #b82c7b;
+}
+
+.speech-bubble.barbara.left:after {
+  border-right-color: #b82c7b;
+}
+
+.speech-bubble.barbara.right:after {
+  border-left-color: #b82c7b;
+}
+
+.speech-bubble.barbara.topright:after {
+  border-bottom-color: #b82c7b;
+}
+
+.speech-bubble.ferris {
+  background: #f14527;
+}
+
+.speech-bubble.ferris.left:after {
+  border-left-color: #f14527;
+}
+
+.speech-bubble.ferris.right:after {
+  border-left-color: #f14527;
+}
+
+.speech-bubble.ferris.topright:after {
+  border-bottom-color: #f14527;
+}
+
+.speech-bubble.alan.left:after {
+  border-left-color: #5914b8;
+}
+
+.speech-bubble.alan.right:after {
+  border-left-color: #5914b8;
+}
+
+.speech-bubble.alan.left:after {
+  border-right-color: #5914b8;
 }

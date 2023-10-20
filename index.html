@@ -10,6 +10,8 @@
 <body>
   <script src="remark-latest.min.js">
   </script>
+  <script src="absolution.js">
+  </script>
   <script>
     var slideshow = remark.create({
       sourceUrl: 'index.md',
@@ -18,5 +20,6 @@
       slideNumberFormat: '%current%',
       highlightLines: true,
     });
+    slideshow.on('afterShowSlide', absolution);
   </script>
 </body>

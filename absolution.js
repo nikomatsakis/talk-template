@@ -1,9 +1,14 @@
+function pToPercent(v) {
+    return v.endsWith("p") ? v.slice(0, -1) + "%" : v;
+}
+
 function absolution() {
     for (const e of document.getElementsByClassName("abspos")) {
         console.log(`found element ${JSON.stringify(e.classList)}`);
         var top = NaN;
         var left = NaN;
         var width = undefined;
+        var height = undefined;
         var rotate = NaN;
         var fontSize = NaN;
 
@@ -18,6 +23,10 @@ function absolution() {
 
             if (c.startsWith("width")) {
                 width = c.substring(5);
+            }
+
+            if (c.startsWith("height")) {
+                height = c.substring(6);
             }
 
             if (c.startsWith("rotate")) {
@@ -43,7 +52,12 @@ function absolution() {
 
         if (width) {
             console.log(`found width ${width}`);
-            e.style.width = `${width}`;
+            e.style.width = pToPercent(width);
+        }
+
+        if (height) {
+            console.log(`found height ${height}`);
+            e.style.height = pToPercent(height);
         }
 
         if (rotate == rotate) {
@@ -56,16 +70,31 @@ function absolution() {
             e.style.fontSize = `${fontSize}`;
         }
 
-        e.onclick = (event) => {
-            let left = e.style.left;
-            let top = e.style.top;
-            let combined = `${left},${top}`;
-            let newvalue = window.prompt("Set left,top", combined);
-            if (newvalue) {
-                let parts = newvalue.split(",");
-                e.style.left = parts[0];
-                e.style.top = parts[1];
+        e.style.cursor = "grab";
+        e.addEventListener("mousedown", (event) => {
+            event.preventDefault();
+            e.style.cursor = "grabbing";
+            e.style.outline = "2px dashed red";
+            const offsetX = event.clientX - e.offsetLeft;
+            const offsetY = event.clientY - e.offsetTop;
+
+            function onMove(ev) {
+                e.style.left = (ev.clientX - offsetX) + "px";
+                e.style.top = (ev.clientY - offsetY) + "px";
             }
-        };
+
+            function onUp() {
+                e.style.cursor = "grab";
+                e.style.outline = "";
+                const cls = `.top${parseInt(e.style.top)}.left${parseInt(e.style.left)}`;
+                navigator.clipboard.writeText(cls);
+                console.log(`Copied: ${cls}`);
+                document.removeEventListener("mousemove", onMove);
+                document.removeEventListener("mouseup", onUp);
+            }
+
+            document.addEventListener("mousemove", onMove);
+            document.addEventListener("mouseup", onUp);
+        });
     }
 }

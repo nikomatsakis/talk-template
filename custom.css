@@ -13,17 +13,17 @@ h3 {
   font-weight: normal;
 }
 
-.remark-code,
-.remark-inline-code {
+.comment-code,
+.comment-inline-code {
   font-family: 'Ubuntu Mono';
 }
 
-.remark-code {
+.comment-code {
   font-size: 20px;
   line-height: 150%;
 }
 
-.remark-slide-content {
+.comment-slide-content {
   font-size: 25px;
   padding: 0em 2em 0em 2em;
 }
@@ -101,11 +101,11 @@ td pre {
   padding-right: 1rem;
 }
 
-.remark-notes-current-area {
+.comment-notes-current-area {
   font-size: 1.5em;
 }
 
-.remark-slide-number {
+.comment-slide-number {
   font-size: 0.6em;
 }
 
@@ -149,7 +149,7 @@ td pre {
 }
 
 @media print {
-  .remark-slide-scaler {
+  .comment-slide-scaler {
     width: 100% !important;
     height: 100% !important;
     transform: scale(1) !important;
